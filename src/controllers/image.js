@@ -21,7 +21,7 @@ ctrl.create = (req, res) => {
             const targetPath = path.resolve(`src/public/upload/${imgURL}${ext}`)
     
             if (ext === '.jpg' || ext === '.png' || ext === '.jpeg' || ext === '.gif') {
-                await fs.rename(imageTempPath, targetPath)
+                await fs.moveSync(imageTempPath, targetPath)
                 const newImg = new Image({
                     title: req.body.title,
                     description: req.body.description,
